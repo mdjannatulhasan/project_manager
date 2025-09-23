@@ -1,0 +1,21 @@
+# Ignore these files/folders
+node_modules/
+tmp/
+log/
+db/
+storage/
+public/
+vendor/
+coverage/
+.git/
+.yarn/
+*.log
+*.sqlite3
+*.sqlite3-journal
+Gemfile.lock
+yarn.lock
+package-lock.json
+
+# Ignore problematic ERB files
+app/views/layouts/mailer.text.erb
+app/views/pwa/manifest.json.erb

@@ -1,0 +1,46 @@
+<div class="container mx-auto p-8">
+    <h1 class="text-3xl font-bold mb-8">Learning Rails Frontend Structure</h1>
+
+    <!-- Stimulus Controller Counter -->
+    <div
+        data-controller="hello"
+        data-hello-number-value="0"
+        class="bg-gray-200 p-6 rounded-lg"
+    >
+        <h2 class="text-xl font-semibold mb-4">Counter Component</h2>
+        <p>This teaches you Stimulus targets, actions, and values!</p>
+
+        <div class="mt-4">
+            <span class="text-4xl font-bold" data-hello-target="count">0</span>
+        </div>
+
+        <div class="mt-4 space-x-2">
+            <button
+                data-action="click->hello#increment"
+                class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+            >
+                +1
+            </button>
+            <button
+                data-action="click->hello#decrement"
+                class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
+            >
+                -1
+            </button>
+            <button
+                data-action="click->hello#reset"
+                class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600"
+            >
+                Reset
+            </button>
+        </div>
+    </div>
+
+    <!-- Asset Pipeline Demo -->
+    <div class="mt-8 bg-blue-100 p-6 rounded-lg">
+        <h2 class="text-xl font-semibold mb-4">Asset Pipeline Demo</h2>
+        <p class="mb-2">✅ Tailwind CSS is working (see the styling above)</p>
+        <p class="mb-2">✅ JavaScript bundling is working (see the console)</p>
+        <p>✅ Stimulus controllers are connected</p>
+    </div>
+</div>
