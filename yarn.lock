@@ -237,7 +237,6 @@ __metadata:
     esbuild: ^0.25.10
     prettier: ^2.2.1
     prettier-plugin-erb: ^0.4.0
-    tailwindcss: ^4.1.13
   languageName: unknown
   linkType: soft
 
@@ -357,12 +356,5 @@ __metadata:
   bin:
     prettier: bin-prettier.js
   checksum: 800de2df3d37067ab24478c7f32c60ca0c57b01742133287829feeb4a70d239a7bf6bccb56196784777af591ad80fb9ba70c1a49b0fcecf9f5622a764d513edb
-  languageName: node
-  linkType: hard
-
-"tailwindcss@npm:^4.1.13":
-  version: 4.1.13
-  resolution: "tailwindcss@npm:4.1.13"
-  checksum: 25e2883c69190c6474a6c44caed8f82511a4025a2285e34bca4b79671a73acd79e74844a4908313098218de81a5aba62df727bb6ee26f69eeca3386b4941de4b
   languageName: node
   linkType: hard

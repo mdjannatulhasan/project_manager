@@ -13,7 +13,7 @@ export default class extends Controller {
         filter: String   // Current filter (all/active/completed)
     }
 
-    connect() {
+    async connect() {
         console.log('Task manager controller connected!')
 
         // Initialize tasks array if not already set
@@ -21,9 +21,7 @@ export default class extends Controller {
             this.tasks = []
         }
 
-        this.loadTasks()
-        this.updateTaskList()
-        this.updateTaskCount()
+        await this.loadTasks()
         this.updateFilterButtons()
     }
 
@@ -191,7 +189,8 @@ export default class extends Controller {
             const response = await fetch('/api/tasks')
             if (response.ok) {
                 this.tasks = await response.json()
-                console.log('Loaded tasks from API:', this.tasks)
+                this.updateTaskList()
+                this.updateTaskCount()
             } else {
                 console.error('Failed to load tasks:', response.status)
                 this.tasks = []

@@ -1,4 +1,5 @@
 class Api::TasksController < ApplicationController
+    protect_from_forgery with: :null_session
     before_action :set_task, only: %i[show update destroy]
 
     # GET /api/tasks

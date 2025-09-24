@@ -13,21 +13,24 @@
 # gem "pg"
 #
 default: &default
-  adapter: sqlite3
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  timeout: 5000
-
+    adapter: mysql2
+    encoding: utf8mb4
+    pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+    username: root
+    password:
+    host: 127.0.0.1
+    port: 3306
 
 development:
-  <<: *default
-  database: db/development.sqlite3
+    <<: *default
+    database: project_manager_development
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
-  <<: *default
-  database: db/test.sqlite3
+    <<: *default
+    database: project_manager_test
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -50,20 +53,20 @@ test:
 # for a full overview on how database connection configuration can be specified.
 #
 production:
-  primary: &primary_production
-    <<: *default
-    database: project_manager_production
-    username: project_manager
-    password: <%= ENV["PROJECT_MANAGER_DATABASE_PASSWORD"] %>
-  cache:
-    <<: *primary_production
-    database: project_manager_production_cache
-    migrations_paths: db/cache_migrate
-  queue:
-    <<: *primary_production
-    database: project_manager_production_queue
-    migrations_paths: db/queue_migrate
-  cable:
-    <<: *primary_production
-    database: project_manager_production_cable
-    migrations_paths: db/cable_migrate
+    primary: &primary_production
+        <<: *default
+        database: project_manager_production
+        username: project_manager
+        password: <%= ENV["PROJECT_MANAGER_DATABASE_PASSWORD"] %>
+    cache:
+        <<: *primary_production
+        database: project_manager_production_cache
+        migrations_paths: db/cache_migrate
+    queue:
+        <<: *primary_production
+        database: project_manager_production_queue
+        migrations_paths: db/queue_migrate
+    cable:
+        <<: *primary_production
+        database: project_manager_production_cable
+        migrations_paths: db/cable_migrate
