@@ -5,4 +5,7 @@
 import { application } from './application'
 
 import HelloController from './hello_controller'
+import TaskManagerController from './task_manager_controller'
+
 application.register('hello', HelloController)
+application.register('task-manager', TaskManagerController)

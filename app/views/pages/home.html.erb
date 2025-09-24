@@ -36,6 +36,72 @@
         </div>
     </div>
 
+    <!-- Advanced Task Manager Component -->
+    <div
+        data-controller="task-manager"
+        data-task-manager-tasks-value="[]"
+        data-task-manager-filter-value="all"
+        class="mt-8 bg-white border border-gray-200 rounded-lg p-6 shadow-lg"
+    >
+        <h2 class="text-2xl font-bold mb-6 text-gray-800">
+            Advanced Task Manager
+        </h2>
+
+        <!-- Task Input Form -->
+        <form data-action="submit->task-manager#addTask" class="mb-6">
+            <div class="flex gap-2">
+                <input
+                    data-task-manager-target="taskInput"
+                    type="text"
+                    placeholder="Add a new task..."
+                    class="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    required
+                />
+                <button
+                    type="submit"
+                    class="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition-colors"
+                >
+                    Add Task
+                </button>
+            </div>
+        </form>
+
+        <!-- Filter Buttons -->
+        <div class="mb-4 flex gap-2">
+            <button
+                data-action="click->task-manager#filterTasks"
+                data-filter="all"
+                class="px-4 py-2 rounded-lg border border-gray-300 hover:bg-gray-50 transition-colors"
+            >
+                All
+            </button>
+            <button
+                data-action="click->task-manager#filterTasks"
+                data-filter="active"
+                class="px-4 py-2 rounded-lg border border-gray-300 hover:bg-gray-50 transition-colors"
+            >
+                Active
+            </button>
+            <button
+                data-action="click->task-manager#filterTasks"
+                data-filter="completed"
+                class="px-4 py-2 rounded-lg border border-gray-300 hover:bg-gray-50 transition-colors"
+            >
+                Completed
+            </button>
+        </div>
+
+        <!-- Task List -->
+        <div data-task-manager-target="taskList" class="space-y-2 mb-4">
+            <!-- Tasks will be rendered here by JavaScript -->
+        </div>
+
+        <!-- Task Count -->
+        <div class="text-sm text-gray-600">
+            <span data-task-manager-target="taskCount">0 tasks remaining</span>
+        </div>
+    </div>
+
     <!-- Asset Pipeline Demo -->
     <div class="mt-8 bg-blue-100 p-6 rounded-lg">
         <h2 class="text-xl font-semibold mb-4">Asset Pipeline Demo</h2>
