@@ -1,0 +1,35 @@
+Description:
+    Generate a main entity with associated items and complete API structure.
+    This creates a professional Rails API setup with nested resources.
+
+Example:
+    bin/rails generate entity_with_items Product
+
+    This will create:
+        - Product model (name, description, status)
+        - Item model with product reference
+        - Api::Products controller
+        - Api::Products::Items controller  
+        - Nested API routes
+        - Sample seed data file
+        - Database migrations
+
+    After generation:
+        1. Run: bin/rails db:migrate
+        2. Run: bin/rails db:seed
+        3. Test API endpoints
+
+    API Endpoints created:
+        GET    /api/products
+        POST   /api/products
+        GET    /api/products/:id
+        PATCH  /api/products/:id
+        DELETE /api/products/:id
+        GET    /api/products/:id/items
+        POST   /api/products/:id/items
+        etc.
+
+    Other examples:
+        bin/rails generate entity_with_items Campaign    # Campaign + Items
+        bin/rails generate entity_with_items Event       # Event + Items
+        bin/rails generate entity_with_items Project     # Project + Items

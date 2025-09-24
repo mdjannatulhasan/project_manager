@@ -9,6 +9,11 @@ Rails
                           only: %i[index show create update destroy],
                           controller: "projects/tasks"
             end
+            resources :campaigns, only: %i[index show create update destroy] do
+                resources :tasks,
+                          only: %i[index show create update destroy],
+                          controller: "campaigns/tasks"
+            end
             resources :tasks, only: %i[index show create update destroy]
         end
 
