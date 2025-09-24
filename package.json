@@ -2,17 +2,21 @@
     "name": "app",
     "private": true,
     "scripts": {
-        "build": "esbuild app/javascript/*.* --bundle --sourcemap --format=esm --outdir=app/assets/builds --public-path=/assets",
-        "build:watch": "esbuild app/javascript/*.* --bundle --sourcemap --format=esm --outdir=app/assets/builds --public-path=/assets --watch=forever",
+        "build": "esbuild app/javascript/*.* --bundle --sourcemap --format=esm --outdir=app/assets/builds --public-path=/assets --loader:.js=jsx",
+        "build:watch": "esbuild app/javascript/*.* --bundle --sourcemap --format=esm --outdir=app/assets/builds --public-path=/assets --watch=forever --loader:.js=jsx",
         "format": "prettier --write \"app/**/*.{rb,erb,js,json}\"",
         "format:check": "prettier --check \"app/**/*.{rb,erb,js,json}\""
     },
     "devDependencies": {
-        "@hotwired/stimulus": "^3.2.2",
         "@hotwired/turbo-rails": "^8.0.16",
         "@prettier/plugin-ruby": "^1.6.1",
         "esbuild": "^0.25.10",
         "prettier": "^2.2.1",
         "prettier-plugin-erb": "^0.4.0"
+    },
+    "dependencies": {
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "react-router-dom": "^6.8.0"
     }
 }
