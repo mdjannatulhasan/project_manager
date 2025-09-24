@@ -29,6 +29,12 @@ const Navigation = () => {
                     >
                         Tasks
                     </Link>
+                    <Link
+                        to="/projects"
+                        className={`hover:text-blue-300 transition-colors ${isActive('/projects') ? 'text-blue-300' : ''}`}
+                    >
+                        Projects
+                    </Link>
                 </div>
             </div>
         </nav>

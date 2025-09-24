@@ -31,12 +31,41 @@ const Home = () => {
                 </div>
             </div>
 
+            {/* Projects Preview */}
+            <div className="grid md:grid-cols-2 gap-8 mt-8">
+                {/* Project Manager Preview */}
+                <div className="bg-gray-100 p-6 rounded-lg">
+                    <h2 className="text-xl font-semibold mb-4">Project Manager</h2>
+                    <p className="mb-4">Advanced API features: filtering, pagination, nested resources, and professional error handling.</p>
+                    <Link
+                        to="/projects"
+                        className="bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-600 transition-colors inline-block"
+                    >
+                        Manage Projects →
+                    </Link>
+                </div>
+
+                {/* API Learning Preview */}
+                <div className="bg-gray-100 p-6 rounded-lg">
+                    <h2 className="text-xl font-semibold mb-4">API Learning</h2>
+                    <p className="mb-4">Learn RESTful API design, nested resources, filtering, pagination, and error handling.</p>
+                    <Link
+                        to="/projects"
+                        className="bg-indigo-500 text-white px-4 py-2 rounded hover:bg-indigo-600 transition-colors inline-block"
+                    >
+                        Explore APIs →
+                    </Link>
+                </div>
+            </div>
+
             <div className="mt-8 bg-yellow-100 p-6 rounded-lg">
                 <h2 className="text-xl font-semibold mb-4">Learning Objectives</h2>
                 <ul className="space-y-2">
                     <li>✅ <strong>React Hooks:</strong> useState, useEffect for state management</li>
                     <li>✅ <strong>Component Architecture:</strong> Functional components and props</li>
                     <li>✅ <strong>API Integration:</strong> Fetch API with Rails backend</li>
+                    <li>✅ <strong>Advanced APIs:</strong> Filtering, pagination, nested resources</li>
+                    <li>✅ <strong>Error Handling:</strong> Professional API error responses</li>
                     <li>✅ <strong>Styling:</strong> Tailwind CSS with React components</li>
                     <li>✅ <strong>Rails Integration:</strong> Server-side rendering with React hydration</li>
                 </ul>

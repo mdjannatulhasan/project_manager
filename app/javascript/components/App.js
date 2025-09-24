@@ -5,6 +5,7 @@ import Navigation from './Navigation'
 import Home from './Home'
 import Counter from './Counter'
 import TaskManager from './TaskManager'
+import ProjectManager from './ProjectManager'
 
 const App = () => {
     return (
@@ -17,6 +18,7 @@ const App = () => {
                     } />
                     <Route path="/counter" element={<Counter />} />
                     <Route path="/tasks" element={<TaskManager />} />
+                    <Route path="/projects" element={<ProjectManager />} />
                 </Routes>
             </div>
         </div>

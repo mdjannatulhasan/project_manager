@@ -4,6 +4,11 @@ Rails
     .draw do
         # API Routes
         namespace :api do
+            resources :projects, only: %i[index show create update destroy] do
+                resources :tasks,
+                          only: %i[index show create update destroy],
+                          controller: "projects/tasks"
+            end
             resources :tasks, only: %i[index show create update destroy]
         end
 
@@ -16,6 +21,7 @@ Rails
         root "pages#home"
         get "counter", to: "pages#home"
         get "tasks", to: "pages#home"
+        get "projects", to: "pages#home"
 
         # Render dynamic PWA files from app/views/pwa/* (remember to link manifest in application.html.erb)
         # get "manifest" => "rails/pwa#manifest", as: :pwa_manifest

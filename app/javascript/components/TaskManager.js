@@ -3,12 +3,15 @@ import Layout from './Layout'
 
 const TaskManager = () => {
     const [tasks, setTasks] = useState([])
+    const [projects, setProjects] = useState([])
     const [newTask, setNewTask] = useState('')
+    const [selectedProject, setSelectedProject] = useState('')
     const [filter, setFilter] = useState('all')
 
-    // Load tasks from API on component mount
+    // Load tasks and projects from API on component mount
     useEffect(() => {
         loadTasks()
+        loadProjects()
     }, [])
 
     const loadTasks = async () => {
@@ -25,6 +28,20 @@ const TaskManager = () => {
         }
     }
 
+    const loadProjects = async () => {
+        try {
+            const response = await fetch('/api/projects')
+            if (response.ok) {
+                const data = await response.json()
+                setProjects(data.data)
+            } else {
+                console.error('Failed to load projects:', response.status)
+            }
+        } catch (error) {
+            console.error('Error loading projects:', error)
+        }
+    }
+
     const addTask = async (e) => {
         e.preventDefault()
         if (newTask.trim()) {
@@ -38,7 +55,8 @@ const TaskManager = () => {
                     body: JSON.stringify({
                         task: {
                             title: newTask.trim(),
-                            completed: false
+                            completed: false,
+                            project_id: selectedProject || null
                         }
                     })
                 })
@@ -47,6 +65,7 @@ const TaskManager = () => {
                     const createdTask = await response.json()
                     setTasks([...tasks, createdTask])
                     setNewTask('')
+                    setSelectedProject('')
                 } else {
                     console.error('Failed to create task:', response.status)
                 }
@@ -139,6 +158,18 @@ const TaskManager = () => {
                             className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                             required
                         />
+                        <select
+                            value={selectedProject}
+                            onChange={(e) => setSelectedProject(e.target.value)}
+                            className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        >
+                            <option value="">No Project</option>
+                            {projects.map((project) => (
+                                <option key={project.id} value={project.id}>
+                                    {project.name}
+                                </option>
+                            ))}
+                        </select>
                         <button
                             type="submit"
                             className="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition-colors"
@@ -164,28 +195,38 @@ const TaskManager = () => {
 
                 {/* Task List */}
                 <div className="space-y-2 mb-4">
-                    {filteredTasks.map(task => (
-                        <div
-                            key={task.id}
-                            className="flex items-center gap-2 p-3 border border-gray-200 rounded-lg"
-                        >
-                            <input
-                                type="checkbox"
-                                checked={task.completed}
-                                onChange={() => toggleTask(task.id)}
-                                className="rounded"
-                            />
-                            <span className={`flex-1 ${task.completed ? 'line-through text-gray-500' : ''}`}>
-                                {task.title}
-                            </span>
-                            <button
-                                onClick={() => removeTask(task.id)}
-                                className="text-red-500 hover:text-red-700 px-2 py-1 rounded"
+                    {filteredTasks.map(task => {
+                        const project = projects.find(p => p.id === task.project_id)
+                        return (
+                            <div
+                                key={task.id}
+                                className="flex items-center gap-2 p-3 border border-gray-200 rounded-lg"
                             >
-                                ×
-                            </button>
-                        </div>
-                    ))}
+                                <input
+                                    type="checkbox"
+                                    checked={task.completed}
+                                    onChange={() => toggleTask(task.id)}
+                                    className="rounded"
+                                />
+                                <div className="flex-1">
+                                    <span className={`${task.completed ? 'line-through text-gray-500' : ''}`}>
+                                        {task.title}
+                                    </span>
+                                    {project && (
+                                        <span className="ml-2 text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">
+                                            {project.name}
+                                        </span>
+                                    )}
+                                </div>
+                                <button
+                                    onClick={() => removeTask(task.id)}
+                                    className="text-red-500 hover:text-red-700 px-2 py-1 rounded"
+                                >
+                                    ×
+                                </button>
+                            </div>
+                        )
+                    })}
                 </div>
 
                 {/* Task Count */}
