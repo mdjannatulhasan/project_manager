@@ -1,0 +1,201 @@
+<div class="container mx-auto p-8">
+    <h1 class="text-3xl font-bold mb-8">Responsive Images Demo</h1>
+
+    <div class="space-y-8">
+        <!-- Basic Responsive Image -->
+        <div class="bg-white p-6 rounded-lg shadow-lg">
+            <h2 class="text-xl font-semibold mb-4">
+                Basic Responsive Image with Srcset
+            </h2>
+            <p class="mb-4 text-gray-600">
+                This image automatically serves different sizes based on device
+                breakpoints:
+            </p>
+
+            <%=
+                responsive_srcset_image(
+                    "icon.png",
+                    alt: "Responsive Icon Demo",
+                    class: "w-full max-w-md mx-auto rounded-lg shadow-md",
+                )
+            %>
+
+            <div class="mt-4 bg-blue-50 p-3 rounded text-sm">
+                <strong>Note:</strong> This demo shows how srcset would work. In
+                a real application, you would have multiple image variants
+                (icon_mobile.png, icon_tablet.png, etc.) for the browser to
+                choose from.
+            </div>
+
+            <div class="mt-4 bg-gray-50 p-4 rounded">
+                <h3 class="font-semibold mb-2">Generated HTML:</h3>
+                <pre
+                    class="text-sm bg-gray-800 text-green-400 p-3 rounded overflow-x-auto"
+                ><code>&lt;img src="/assets/icon.png" 
+  srcset="/assets/icon_mobile.png 400w, /assets/icon_tablet.png 800w, /assets/icon_desktop.png 1200w, /assets/icon_large.png 1600w"
+  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+  alt="Responsive Icon Demo"
+  class="w-full max-w-md mx-auto rounded-lg shadow-md"
+  loading="lazy" /&gt;</code></pre>
+            </div>
+        </div>
+
+        <!-- Picture Element Demo -->
+        <div class="bg-white p-6 rounded-lg shadow-lg">
+            <h2 class="text-xl font-semibold mb-4">
+                Picture Element with Multiple Formats
+            </h2>
+            <p class="mb-4 text-gray-600">
+                This uses the &lt;picture&gt; element to serve WebP for modern
+                browsers and JPEG as fallback:
+            </p>
+
+            <%=
+                responsive_picture_tag(
+                    "icon.png",
+                    alt: "Picture Element Demo",
+                    formats: %w[webp jpg],
+                    class: "w-full max-w-md mx-auto rounded-lg shadow-md",
+                )
+            %>
+
+            <div class="mt-4 bg-green-50 p-3 rounded text-sm">
+                <strong>Note:</strong> This demo shows how the &lt;picture&gt;
+                element would work with multiple formats. In a real application,
+                you would have WebP and JPEG variants of each size.
+            </div>
+
+            <div class="mt-4 bg-gray-50 p-4 rounded">
+                <h3 class="font-semibold mb-2">Generated HTML:</h3>
+                <pre
+                    class="text-sm bg-gray-800 text-green-400 p-3 rounded overflow-x-auto"
+                ><code>&lt;picture class="w-full max-w-md mx-auto rounded-lg shadow-md"&gt;
+  &lt;source srcset="/assets/icon_mobile.webp 400w, /assets/icon_tablet.webp 800w, /assets/icon_desktop.webp 1200w" type="image/webp" /&gt;
+  &lt;source srcset="/assets/icon_mobile.jpg 400w, /assets/icon_tablet.jpg 800w, /assets/icon_desktop.jpg 1200w" type="image/jpeg" /&gt;
+  &lt;img src="/assets/icon.png" alt="Picture Element Demo" loading="lazy" /&gt;
+&lt;/picture&gt;</code></pre>
+            </div>
+        </div>
+
+        <!-- Asset Path Demo -->
+        <div class="bg-white p-6 rounded-lg shadow-lg">
+            <h2 class="text-xl font-semibold mb-4">Asset Path Information</h2>
+            <p class="mb-4 text-gray-600">
+                Rails automatically handles asset paths and CDN integration:
+            </p>
+
+            <%= asset_info("icon.png") %>
+
+            <div class="mt-4 space-y-2">
+                <div class="bg-blue-50 p-3 rounded">
+                    <strong>Asset Path:</strong> <%= asset_path("icon.png") %>
+                </div>
+                <div class="bg-green-50 p-3 rounded">
+                    <strong>Image Tag:</strong> <%=
+                        image_tag("icon.png", class: "w-8 h-8 inline")
+                    %>
+                </div>
+            </div>
+        </div>
+
+        <!-- Real Implementation Guide -->
+        <div class="bg-white p-6 rounded-lg shadow-lg">
+            <h2 class="text-xl font-semibold mb-4">
+                Real Implementation Guide
+            </h2>
+
+            <div class="space-y-6">
+                <div>
+                    <h3 class="text-lg font-semibold mb-3">
+                        Step 1: Create Image Variants
+                    </h3>
+                    <div class="bg-gray-50 p-4 rounded">
+                        <p class="mb-2 text-sm text-gray-700">
+                            Create multiple versions of your images:
+                        </p>
+                        <ul class="text-sm space-y-1 text-gray-600">
+                            <li>
+                                • <code>hero_mobile.jpg</code> (400px width)
+                            </li>
+                            <li>
+                                • <code>hero_tablet.jpg</code> (800px width)
+                            </li>
+                            <li>
+                                • <code>hero_desktop.jpg</code> (1200px width)
+                            </li>
+                            <li>
+                                • <code>hero_large.jpg</code> (1600px width)
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold mb-3">
+                        Step 2: Use the Helper
+                    </h3>
+                    <div class="bg-gray-50 p-4 rounded">
+                        <pre
+                            class="text-sm bg-gray-800 text-green-400 p-3 rounded overflow-x-auto"
+                        ><code>&lt;%= responsive_srcset_image("hero.jpg", 
+    alt: "Hero Image", 
+    class: "w-full h-64 object-cover"
+) %&gt;</code></pre>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold mb-3">
+                        Step 3: Browser Does the Rest
+                    </h3>
+                    <div class="bg-green-50 p-4 rounded">
+                        <ul class="text-sm space-y-1 text-green-700">
+                            <li>
+                                • Browser automatically chooses the best image
+                                size
+                            </li>
+                            <li>
+                                • Mobile users get 400px images (faster loading)
+                            </li>
+                            <li>
+                                • Desktop users get 1600px images (high quality)
+                            </li>
+                            <li>• No JavaScript required!</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Performance Comparison -->
+        <div class="bg-white p-6 rounded-lg shadow-lg">
+            <h2 class="text-xl font-semibold mb-4">Performance Comparison</h2>
+
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-red-50 p-4 rounded">
+                    <h3 class="font-semibold text-red-800 mb-2">
+                        ❌ Traditional Approach
+                    </h3>
+                    <ul class="text-sm space-y-1 text-red-700">
+                        <li>• Same large image for all devices</li>
+                        <li>• Wasted bandwidth on mobile</li>
+                        <li>• Slower loading times</li>
+                        <li>• Poor user experience</li>
+                    </ul>
+                </div>
+
+                <div class="bg-green-50 p-4 rounded">
+                    <h3 class="font-semibold text-green-800 mb-2">
+                        ✅ Responsive Approach
+                    </h3>
+                    <ul class="text-sm space-y-1 text-green-700">
+                        <li>• Optimized size for each device</li>
+                        <li>• 50-70% bandwidth savings</li>
+                        <li>• Faster loading times</li>
+                        <li>• Better user experience</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

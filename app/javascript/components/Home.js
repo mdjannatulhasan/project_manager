@@ -58,17 +58,34 @@ const Home = () => {
                 </div>
             </div>
 
-            <div className="mt-8 bg-yellow-100 p-6 rounded-lg">
-                <h2 className="text-xl font-semibold mb-4">Learning Objectives</h2>
-                <ul className="space-y-2">
-                    <li>✅ <strong>React Hooks:</strong> useState, useEffect for state management</li>
-                    <li>✅ <strong>Component Architecture:</strong> Functional components and props</li>
-                    <li>✅ <strong>API Integration:</strong> Fetch API with Rails backend</li>
-                    <li>✅ <strong>Advanced APIs:</strong> Filtering, pagination, nested resources</li>
-                    <li>✅ <strong>Error Handling:</strong> Professional API error responses</li>
-                    <li>✅ <strong>Styling:</strong> Tailwind CSS with React components</li>
-                    <li>✅ <strong>Rails Integration:</strong> Server-side rendering with React hydration</li>
-                </ul>
+            {/* Styling & UI Learning Preview */}
+            <div className="mt-8">
+                <div className="bg-gray-100 p-6 rounded-lg">
+                    <h2 className="text-xl font-semibold mb-4">Styling & UI Patterns</h2>
+                    <p className="mb-4">Master asset helpers, responsive design, component libraries, and advanced Tailwind patterns.</p>
+                    <Link
+                        to="/styling"
+                        className="bg-pink-500 text-white px-4 py-2 rounded hover:bg-pink-600 transition-colors inline-block"
+                    >
+                        Explore Styling →
+                    </Link>
+                </div>
+
+                <div className="mt-8 bg-yellow-100 p-6 rounded-lg">
+                    <h2 className="text-xl font-semibold mb-4">Learning Objectives</h2>
+                    <ul className="space-y-2">
+                        <li>✅ <strong>React Hooks:</strong> useState, useEffect for state management</li>
+                        <li>✅ <strong>Component Architecture:</strong> Functional components and props</li>
+                        <li>✅ <strong>API Integration:</strong> Fetch API with Rails backend</li>
+                        <li>✅ <strong>Advanced APIs:</strong> Filtering, pagination, nested resources</li>
+                        <li>✅ <strong>Error Handling:</strong> Professional API error responses</li>
+                        <li>✅ <strong>Styling:</strong> Tailwind CSS with React components</li>
+                        <li>✅ <strong>Asset Helpers:</strong> image_tag, responsive images, asset paths</li>
+                        <li>✅ <strong>Responsive Design:</strong> Grid systems, flexbox, typography scales</li>
+                        <li>✅ <strong>Component Libraries:</strong> Reusable UI patterns and animations</li>
+                        <li>✅ <strong>Rails Integration:</strong> Server-side rendering with React hydration</li>
+                    </ul>
+                </div>
             </div>
         </Layout>
     )

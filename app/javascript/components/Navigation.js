@@ -35,6 +35,24 @@ const Navigation = () => {
                     >
                         Projects
                     </Link>
+              <Link
+                to="/styling"
+                className={`hover:text-blue-300 transition-colors ${isActive('/styling') ? 'text-blue-300' : ''}`}
+              >
+                Styling
+              </Link>
+              <Link
+                to="/responsive-images"
+                className={`hover:text-blue-300 transition-colors ${isActive('/responsive-images') ? 'text-blue-300' : ''}`}
+              >
+                Gallery
+              </Link>
+              <Link
+                to="/chat"
+                className={`hover:text-blue-300 transition-colors ${isActive('/chat') ? 'text-blue-300' : ''}`}
+              >
+                Chat
+              </Link>
                 </div>
             </div>
         </nav>

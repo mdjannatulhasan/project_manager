@@ -6,6 +6,9 @@ import Home from './Home'
 import Counter from './Counter'
 import TaskManager from './TaskManager'
 import ProjectManager from './ProjectManager'
+import StylingDemo from './StylingDemo'
+import Gallery from './Gallery'
+import Chat from './Chat'
 
 const App = () => {
     return (
@@ -19,6 +22,10 @@ const App = () => {
                     <Route path="/counter" element={<Counter />} />
                     <Route path="/tasks" element={<TaskManager />} />
                     <Route path="/projects" element={<ProjectManager />} />
+                    <Route path="/styling" element={<StylingDemo />} />
+                    <Route path="/responsive-images" element={<Gallery />} />
+                    <Route path="/gallery" element={<Gallery />} />
+                    <Route path="/chat" element={<Chat />} />
                 </Routes>
             </div>
         </div>

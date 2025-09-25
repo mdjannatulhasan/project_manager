@@ -213,7 +213,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rails/actioncable@npm:>=7.0":
+"@rails/actioncable@npm:>=7.0, @rails/actioncable@npm:^8.0.300":
   version: 8.0.300
   resolution: "@rails/actioncable@npm:8.0.300"
   checksum: 5fb06761a41b4959af883649d46bd120a6a3fa71d93954b0c8b4004041b6285d5fffb093ed954c70891ad4d090cd623da5bdc4da014675f062e9c1e2855075dc
@@ -233,6 +233,7 @@ __metadata:
   dependencies:
     "@hotwired/turbo-rails": ^8.0.16
     "@prettier/plugin-ruby": ^1.6.1
+    "@rails/actioncable": ^8.0.300
     esbuild: ^0.25.10
     prettier: ^2.2.1
     prettier-plugin-erb: ^0.4.0

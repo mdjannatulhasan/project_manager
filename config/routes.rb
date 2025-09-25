@@ -27,6 +27,19 @@ Rails
         get "counter", to: "pages#home"
         get "tasks", to: "pages#home"
         get "projects", to: "pages#home"
+        get "styling", to: "pages#home"
+        get "responsive-images", to: "pages#home"
+        get "gallery", to: "pages#home"
+        get "chat", to: "pages#home"
+
+        # API Gallery routes
+        namespace :api do
+            resources :gallery_images, only: %i[index create destroy]
+            resources :chat_messages, only: [:index]
+        end
+
+        # Action Cable routes
+        mount ActionCable.server => "/cable"
 
         # Render dynamic PWA files from app/views/pwa/* (remember to link manifest in application.html.erb)
         # get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
