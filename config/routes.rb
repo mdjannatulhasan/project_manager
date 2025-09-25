@@ -32,7 +32,6 @@ Rails
         get "gallery", to: "pages#home"
         get "chat", to: "pages#home"
 
-        # API Gallery routes
         namespace :api do
             resources :gallery_images, only: %i[index create destroy]
             resources :chat_messages, only: [:index]
