@@ -57,26 +57,26 @@ Based on your lead's feedback, here are the key areas you should focus on learni
 #### **ERB / Slim / HAML Templates**
 
 -   [x] **ERB Templates**: Understand how HTML is generated in `.html.erb` files
--   [ ] **Partials**: Know where partials live (`_partial.html.erb`) and how to use `render`
--   [ ] **Layouts**: Understand how `application.html.erb` wraps all pages
--   [ ] **View Helpers**: Learn `link_to`, `form_with`, `image_tag` helpers
--   [ ] **Instance Variables**: How controllers pass data to views (`@variable`)
+-   [x] **Partials**: Know where partials live (`_partial.html.erb`) and how to use `render`
+-   [x] **Layouts**: Understand how `application.html.erb` wraps all pages
+-   [x] **View Helpers**: Learn `link_to`, `form_with`, `image_tag` helpers
+-   [x] **Instance Variables**: How controllers pass data to views (`@variable`)
 
 #### **Asset Pipeline vs Import Maps / Webpacker**
 
--   [ ] **Asset Pipeline**: Understand how JS/CSS are bundled and served
--   [ ] **Import Maps**: Learn Rails 7+ approach to JavaScript modules
--   [ ] **Webpacker**: If used, understand how it compiles assets
--   [ ] **Asset Helpers**: `stylesheet_link_tag`, `javascript_include_tag`
--   [ ] **Asset Fingerprinting**: How Rails handles cache busting
+-   [x] **Asset Pipeline**: Understand how JS/CSS are bundled and served
+-   [x] **Import Maps**: Learn Rails 7+ approach to JavaScript modules
+-   [x] **Webpacker**: If used, understand how it compiles assets
+-   [x] **Asset Helpers**: `stylesheet_link_tag`, `javascript_include_tag`
+-   [x] **Asset Fingerprinting**: How Rails handles cache busting
 
 #### **Path Helpers & CSRF Tokens**
 
--   [ ] **Path Helpers**: `root_path`, `users_path`, `user_path(@user)`
--   [ ] **CSRF Tokens**: How Rails injects authenticity tokens into forms
--   [ ] **AJAX CSRF**: Including tokens in custom fetch/axios requests
--   [ ] **Meta Tags**: Understanding `csrf-token` meta tag
--   [ ] **Form Security**: Why AJAX calls fail with 422 errors
+-   [x] **Path Helpers**: `root_path`, `users_path`, `user_path(@user)`
+-   [x] **CSRF Tokens**: How Rails injects authenticity tokens into forms
+-   [x] **AJAX CSRF**: Including tokens in custom fetch/axios requests
+-   [x] **Meta Tags**: Understanding `csrf-token` meta tag
+-   [x] **Form Security**: Why AJAX calls fail with 422 errors
 
 ### **2. Rails UJS / Turbo & AJAX Basics** ⭐⭐
 
