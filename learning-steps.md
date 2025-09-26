@@ -82,26 +82,26 @@ Based on your lead's feedback, here are the key areas you should focus on learni
 
 #### **Remote Forms & Events**
 
--   [ ] **Form with Remote**: `form_with remote: true` vs regular forms
--   [ ] **AJAX Events**: `ajax:success`, `ajax:error`, `ajax:complete`
--   [ ] **Turbo Drive**: How Turbo replaces full page loads
--   [ ] **Turbo Frames**: Partial page updates without JavaScript
--   [ ] **Turbo Streams**: Real-time updates with server-sent HTML
+-   [x] **Form with Remote**: `form_with remote: true` vs regular forms
+-   [x] **AJAX Events**: `ajax:success`, `ajax:error`, `ajax:complete`
+-   [x] **Turbo Drive**: How Turbo replaces full page loads
+-   [x] **Turbo Frames**: Partial page updates without JavaScript
+-   [x] **Turbo Streams**: Real-time updates with server-sent HTML
 
 #### **JSON vs HTML Responses**
 
--   [ ] **Controller Responses**: `respond_to do |format|`
--   [ ] **JSON Responses**: `format.json { render json: @data }`
--   [ ] **HTML Responses**: `format.html { render :show }`
--   [ ] **JS Responses**: `format.js { render 'create.js.erb' }`
--   [ ] **Status Codes**: Understanding 200, 422, 500 responses
+-   [x] **Controller Responses**: `respond_to do |format|`
+-   [x] **JSON Responses**: `format.json { render json: @data }`
+-   [x] **HTML Responses**: `format.html { render :show }`
+-   [x] **JS Responses**: `format.js { render 'create.js.erb' }`
+-   [x] **Status Codes**: Understanding 200, 422, 500 responses
 
 #### **Authenticity Tokens**
 
--   [ ] **Form Tokens**: How Rails automatically adds CSRF tokens
--   [ ] **Fetch Requests**: Manually including tokens in AJAX
--   [ ] **Axios Setup**: Configuring axios to include tokens
--   [ ] **Token Validation**: Why requests fail without proper tokens
+-   [x] **Form Tokens**: How Rails automatically adds CSRF tokens
+-   [x] **Fetch Requests**: Manually including tokens in AJAX
+-   [x] **Axios Setup**: Configuring axios to include tokens
+-   [x] **Token Validation**: Why requests fail without proper tokens
 
 ### **3. Working with Large Forms & Validations** ⭐⭐⭐
 
