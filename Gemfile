@@ -67,4 +67,4 @@ end
 gem "tailwindcss-ruby", "~> 4.1"
 
 gem "tailwindcss-rails"
-gem "mini_magick", "~> 4.3"
+gem "mini_magick", "~> 5.3"
